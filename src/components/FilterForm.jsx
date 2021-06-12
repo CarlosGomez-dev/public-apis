@@ -1,8 +1,14 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useFetchApiCategories } from '../hooks/useFetchApiCategories';
-import { FilterFormSelect } from './FilterFormSelect';
+import { FilterFormSelectMemo } from './FilterFormSelect';
+import './FilterForm.scss';
 
-const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
+const PAGE_SIZE_OPTIONS = [
+  [10, '10 / page'],
+  [20, '20 / page'],
+  [50, '50 / page'],
+  [100, '100 / page'],
+];
 const apiKeysAsOptions = [
   ['API', 'Name'],
   'Description',
@@ -14,9 +20,10 @@ const apiKeysAsOptions = [
 ];
 
 export const FilterForm = ({
+  inputRef,
   handleSearch,
   pageLimit,
-  setPageLimit,
+  handlePageLimit,
   setSortBy,
   handleCategory,
 }) => {
@@ -33,31 +40,43 @@ export const FilterForm = ({
   }, [handleSearch, inputText]);
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
-      <label htmlFor='filter'>Find API:</label>
-      <input type='text' id='filter' value={inputText} onChange={handleInput} />
-      {/* <button type='submit'>Search</button> */}
-
-      <FilterFormSelect
-        label='Results per Page'
-        optionsArray={PAGE_SIZE_OPTIONS}
-        defaultValue={pageLimit}
-        onChange={setPageLimit}
+    <form onSubmit={e => e.preventDefault()} className='form'>
+      <label htmlFor='filter' className='label'>
+        Find
+      </label>
+      <input
+        ref={inputRef}
+        type='text'
+        id='filter'
+        placeholder='e.g.: Weather'
+        value={inputText}
+        onChange={handleInput}
+        className='input'
       />
+      <span>Press / to jump to the search box</span>
 
-      <FilterFormSelect
-        label='Sort by'
-        optionsArray={apiKeysAsOptions}
-        onChange={setSortBy}
-        hasNullOption
-      />
-
-      <FilterFormSelect
-        label='Categories'
-        optionsArray={categories}
-        onChange={handleCategory}
-        hasNullOption
-      />
+      <section className='form__filters'>
+        <FilterFormSelectMemo
+          label='Results per Page'
+          optionsArray={PAGE_SIZE_OPTIONS}
+          defaultValue={pageLimit}
+          onChange={handlePageLimit}
+        />
+        <FilterFormSelectMemo
+          label='Sort by'
+          optionsArray={apiKeysAsOptions}
+          onChange={setSortBy}
+          hasNullOption
+        />
+        <FilterFormSelectMemo
+          label='Categories'
+          optionsArray={categories}
+          onChange={handleCategory}
+          hasNullOption
+        />
+      </section>
     </form>
   );
 };
+
+export const FilterFormMemo = memo(FilterForm);

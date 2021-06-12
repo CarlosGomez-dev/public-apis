@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { DataList, FilterForm, Pagination } from './components';
-import './App.css';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { DataList, FilterFormMemo, Pagination } from './components';
+import './App.scss';
 import { useFetchApiEntries } from './hooks/useFetchApiEntries';
 import { sort } from './utils/sort';
 
@@ -11,10 +11,9 @@ export const App = () => {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-
   const [pageLimit, setPageLimit] = useState(20);
+  const inputRef = useRef(null);
 
-  // is this the correct way to sort, categorize, filter, and paginate data?
   const sortedData = sort(apiData, sortBy);
   const categoryApiData = categoryFilter
     ? sortedData.filter(api => api.Category === categoryFilter)
@@ -27,29 +26,39 @@ export const App = () => {
     pageLimit * currentPage,
   );
 
-  const handlePage = num => {
-    setCurrentPage(currentPage + num);
-  };
-
-  const handleSearch = searchText => {
+  const handleSearch = useCallback(searchText => {
     setCurrentPage(1);
     setSearchFilter(searchText);
+  }, []);
+
+  const handleCategory = useCallback(category => {
+    setCurrentPage(1);
+    setCategoryFilter(category);
+  }, []);
+
+  const handlePageLimit = useCallback(newLimit => {
+    setCurrentPage(1);
+    setPageLimit(newLimit);
+  }, []);
+
+  const handleKeyUp = event => {
+    if (event.key === '/') inputRef.current.focus();
   };
 
-  const handleCategory = category => {
-    setCategoryFilter(category);
-    setCurrentPage(1);
-  };
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return (
-    <div className='App'>
+    <div className='App' onKeyUp={handleKeyUp}>
+      <h1>Public APIs</h1>
       <header>
-        <h1>Hello from App</h1>
-        <FilterForm
+        <FilterFormMemo
           {...{
+            inputRef,
             handleSearch,
             pageLimit,
-            setPageLimit,
+            handlePageLimit,
             setSortBy,
             handleCategory,
           }}
@@ -59,9 +68,15 @@ export const App = () => {
         totalResults={filteredApiData.length}
         currentPage={currentPage}
         pageLimit={pageLimit}
-        handlePage={handlePage}
+        setCurrentPage={setCurrentPage}
       />
-      <DataList apiData={paginatedApiData} />
+      {paginatedApiData.length ? (
+        <DataList apiData={paginatedApiData} />
+      ) : (
+        <p className='no-results'>
+          No results, try another search term or change the filters to see more results.
+        </p>
+      )}
     </div>
   );
 };

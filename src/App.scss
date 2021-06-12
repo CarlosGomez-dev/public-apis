@@ -1,7 +1,21 @@
 .App {
-  max-width: 1200px;
+  width: clamp(400px, 80%, 1200px);
   margin: 0 auto;
   padding: 2rem;
+  h1 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+}
+
+.no-results {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.3rem;
 }
 
 a[target='_blank']::after {

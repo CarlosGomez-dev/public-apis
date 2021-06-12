@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 export const FilterFormSelect = ({
   label,
   optionsArray,
@@ -5,12 +7,15 @@ export const FilterFormSelect = ({
   onChange,
   hasNullOption = false,
 }) => (
-  <>
-    <label htmlFor={label.replace(' ', '-')}>{label}</label>
+  <div className='form__select'>
+    <label htmlFor={label.replace(' ', '-')} className='label'>
+      {label}
+    </label>
     <select
       id={label.replace(' ', '-')}
       defaultValue={hasNullOption ? '-' : defaultValue}
       onChange={event => onChange(event.target.value)}
+      className='select'
     >
       {hasNullOption ? <option value=''>-</option> : null}
       {optionsArray.map(option => {
@@ -28,5 +33,7 @@ export const FilterFormSelect = ({
         );
       })}
     </select>
-  </>
+  </div>
 );
+
+export const FilterFormSelectMemo = memo(FilterFormSelect);
