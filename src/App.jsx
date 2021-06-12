@@ -7,10 +7,12 @@ import { sort } from './utils/sort';
 export const App = () => {
   const apiData = useFetchApiEntries();
   const [sortBy, setSortBy] = useState('');
+
   const [categoryFilter, setCategoryFilter] = useState('');
-  const [pageFilter, setPageFilter] = useState('');
-  const [pageLimit, setPageLimit] = useState(20);
+  const [searchFilter, setSearchFilter] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+
+  const [pageLimit, setPageLimit] = useState(20);
 
   // is this the correct way to sort, categorize, filter, and paginate data?
   const sortedData = sort(apiData, sortBy);
@@ -18,7 +20,7 @@ export const App = () => {
     ? sortedData.filter(api => api.Category === categoryFilter)
     : sortedData;
   const filteredApiData = categoryApiData.filter(api =>
-    (api.API + api.Description).toLowerCase().includes(pageFilter.toLowerCase()),
+    (api.API + api.Description).toLowerCase().includes(searchFilter.toLowerCase()),
   );
   const paginatedApiData = filteredApiData.slice(
     pageLimit * (currentPage - 1),
@@ -31,11 +33,11 @@ export const App = () => {
 
   const handleSearch = searchText => {
     setCurrentPage(1);
-    setPageFilter(searchText);
+    setSearchFilter(searchText);
   };
 
-  const handleCategory = event => {
-    setCategoryFilter(event.target.value);
+  const handleCategory = category => {
+    setCategoryFilter(category);
     setCurrentPage(1);
   };
 

@@ -1,7 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFetchApiCategories } from '../hooks/useFetchApiCategories';
+import { FilterFormSelect } from './FilterFormSelect';
 
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100];
+const apiKeysAsOptions = [
+  ['API', 'Name'],
+  'Description',
+  'Auth',
+  'HTTPS',
+  'Cors',
+  'Link',
+  'Category',
+];
 
 export const FilterForm = ({
   handleSearch,
@@ -15,50 +25,39 @@ export const FilterForm = ({
 
   const handleInput = event => {
     setInputText(event.target.value);
-    handleSearch(event.target.value);
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    handleSearch(inputText);
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => handleSearch(inputText), 500);
+    return () => clearTimeout(timer);
+  }, [handleSearch, inputText]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={e => e.preventDefault()}>
       <label htmlFor='filter'>Find API:</label>
       <input type='text' id='filter' value={inputText} onChange={handleInput} />
-      <button type='submit'>Search</button>
+      {/* <button type='submit'>Search</button> */}
 
-      <label htmlFor='pageSize'>Results per page</label>
-      <select id='pageSize' value={pageLimit} onChange={event => setPageLimit(event.target.value)}>
-        {PAGE_SIZE_OPTIONS.map(value => (
-          <option key={value} value={value}>
-            {value}
-          </option>
-        ))}
-      </select>
+      <FilterFormSelect
+        label='Results per Page'
+        optionsArray={PAGE_SIZE_OPTIONS}
+        defaultValue={pageLimit}
+        onChange={setPageLimit}
+      />
 
-      <label htmlFor='sortBy'>Sort by</label>
-      <select id='sortBy' onChange={event => setSortBy(event.target.value)}>
-        <option value=''>-</option>
-        <option value='API'>Name</option>
-        <option value='Description'>Description</option>
-        <option value='Auth'>Auth</option>
-        <option value='HTTPS'>HTTPS</option>
-        <option value='Cors'>CORS</option>
-        <option value='Link'>URL</option>
-        <option value='Category'>Category</option>
-      </select>
+      <FilterFormSelect
+        label='Sort by'
+        optionsArray={apiKeysAsOptions}
+        onChange={setSortBy}
+        hasNullOption
+      />
 
-      <label htmlFor='categories'>Categories</label>
-      <select id='categories' defaultValue='-' onChange={handleCategory}>
-        <option value=''>-</option>
-        {categories.map(category => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
+      <FilterFormSelect
+        label='Categories'
+        optionsArray={categories}
+        onChange={handleCategory}
+        hasNullOption
+      />
     </form>
   );
 };
