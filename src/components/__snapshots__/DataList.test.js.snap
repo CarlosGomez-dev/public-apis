@@ -8,27 +8,37 @@ exports[`Data List matches snapshot 1`] = `
     <thead>
       <tr>
         <th>
-          <button>
+          <button
+            class="api-table-header"
+          >
             Name
           </button>
         </th>
         <th>
-          <button>
+          <button
+            class="api-table-header"
+          >
             Description
           </button>
         </th>
         <th>
-          <button>
+          <button
+            class="api-table-header"
+          >
             Auth
           </button>
         </th>
         <th>
-          <button>
+          <button
+            class="api-table-header"
+          >
             HTTPS
           </button>
         </th>
         <th>
-          <button>
+          <button
+            class="api-table-header"
+          >
             Category
           </button>
         </th>
@@ -74,7 +84,6 @@ exports[`Data List matches snapshot 1`] = `
         <td>
           <span
             class="badge category"
-            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
           >
             Animals
           </span>
@@ -119,7 +128,6 @@ exports[`Data List matches snapshot 1`] = `
         <td>
           <span
             class="badge category"
-            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
           >
             Animals
           </span>
@@ -164,7 +172,6 @@ exports[`Data List matches snapshot 1`] = `
         <td>
           <span
             class="badge category"
-            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
           >
             Animals
           </span>

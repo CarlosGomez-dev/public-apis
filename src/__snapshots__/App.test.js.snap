@@ -3,12 +3,20 @@
 exports[`App matches snapshot 1`] = `
 <div>
   <div
-    class="App"
+    class="main-page"
   >
-    <h1>
-      Public APIs
-    </h1>
     <header>
+      <h1
+        class="page-title"
+      >
+        <img
+          alt="plug in"
+          src="plug-in.svg"
+        />
+        <span>
+          Public APIs
+        </span>
+      </h1>
       <form
         class="form"
       >
@@ -16,13 +24,13 @@ exports[`App matches snapshot 1`] = `
           class="label"
           for="filter"
         >
-          Find
+          Search
         </label>
         <input
           class="input search"
           id="filter"
           placeholder="e.g.: Weather"
-          type="text"
+          type="search"
           value=""
         />
         <span>
@@ -254,27 +262,37 @@ exports[`App matches snapshot 1`] = `
       <thead>
         <tr>
           <th>
-            <button>
+            <button
+              class="api-table-header"
+            >
               Name
             </button>
           </th>
           <th>
-            <button>
+            <button
+              class="api-table-header"
+            >
               Description
             </button>
           </th>
           <th>
-            <button>
+            <button
+              class="api-table-header"
+            >
               Auth
             </button>
           </th>
           <th>
-            <button>
+            <button
+              class="api-table-header"
+            >
               HTTPS
             </button>
           </th>
           <th>
-            <button>
+            <button
+              class="api-table-header"
+            >
               Category
             </button>
           </th>
@@ -320,7 +338,6 @@ exports[`App matches snapshot 1`] = `
           <td>
             <span
               class="badge category"
-              style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
             >
               Animals
             </span>
@@ -365,7 +382,6 @@ exports[`App matches snapshot 1`] = `
           <td>
             <span
               class="badge category"
-              style="background-color: rgb(137, 123, 250);"
             >
               Development
             </span>
@@ -410,7 +426,6 @@ exports[`App matches snapshot 1`] = `
           <td>
             <span
               class="badge category"
-              style="background-color: rgb(72, 153, 46);"
             >
               Music
             </span>

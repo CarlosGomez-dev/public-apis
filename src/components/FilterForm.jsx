@@ -1,7 +1,9 @@
 import { memo, useEffect, useState } from 'react';
-import { useFetchApiCategories } from '../hooks';
-import { FilterFormSelectMemo } from './FilterFormSelect';
+import { useFetchPublicApi } from '../hooks';
+import { FilterFormSelect } from './FilterFormSelect';
 import './FilterForm.scss';
+
+const FilterFormSelectMemo = memo(FilterFormSelect);
 
 const PAGE_SIZE_OPTIONS = [
   [10, '10 / page'],
@@ -20,7 +22,7 @@ export const FilterForm = ({
   handleCategory,
 }) => {
   const [inputText, setInputText] = useState('');
-  const categories = useFetchApiCategories();
+  const [categories] = useFetchPublicApi('categories');
 
   const handleInput = event => {
     setInputText(event.target.value);
@@ -34,11 +36,11 @@ export const FilterForm = ({
   return (
     <form onSubmit={e => e.preventDefault()} className='form'>
       <label htmlFor='filter' className='label'>
-        Find
+        Search
       </label>
       <input
         ref={inputRef}
-        type='text'
+        type='search'
         id='filter'
         placeholder='e.g.: Weather'
         value={inputText}
@@ -71,5 +73,3 @@ export const FilterForm = ({
     </form>
   );
 };
-
-export const FilterFormMemo = memo(FilterForm);

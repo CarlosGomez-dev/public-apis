@@ -1,25 +1,30 @@
 @import './colors';
 
-.App {
+.main-page {
   width: clamp(400px, 80%, 1000px);
   margin: 0 auto;
   padding: 2rem;
   margin-top: 3rem;
-  h1 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    padding: 1rem;
-    background-color: $background-color;
-    text-align: center;
-    width: 100%;
-    width: 100vw;
-  }
 }
 
-.no-results,
-.loading {
+.page-title {
+  position: fixed;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 1rem;
+  background-color: $background-color;
+  text-align: center;
+  width: 100%;
+  width: 100vw;
+  min-width: 400px;
+}
+.page-error,
+.page-no-results,
+.page-loading {
   text-align: center;
   padding: 1rem;
   font-size: 1.3rem;

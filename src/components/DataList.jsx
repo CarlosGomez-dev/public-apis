@@ -1,4 +1,3 @@
-import { colorFromString } from '../utils';
 import './DataList.scss';
 
 const headers = ['Name', 'Description', 'Auth', 'HTTPS', 'Category'];
@@ -9,14 +8,19 @@ export const DataList = ({ apiData, handleSort }) => (
       <tr>
         {headers.map(header => (
           <th key={header}>
-            <button onClick={() => handleSort(header === 'Name' ? 'API' : header)}>{header}</button>
+            <button
+              className='api-table-header'
+              onClick={() => handleSort(header === 'Name' ? 'API' : header)}
+            >
+              {header}
+            </button>
           </th>
         ))}
       </tr>
     </thead>
     <tbody>
       {apiData.map(api => (
-        <tr key={api.API + api.Link}>
+        <tr key={`${api.API}${api.Link}`}>
           <td className='api-name'>
             <a href={api.Link} target='_blank' rel='noopener noreferrer'>
               <span>{api.API}</span>
@@ -36,9 +40,7 @@ export const DataList = ({ apiData, handleSort }) => (
             </span>
           </td>
           <td>
-            <span style={colorFromString(api.Category)} className='badge category'>
-              {api.Category}
-            </span>
+            <span className='badge category'>{api.Category}</span>
           </td>
         </tr>
       ))}

@@ -13,7 +13,7 @@ describe('FilterForm', () => {
   it('accepts user input', () => {
     render(<FilterForm {...filterFormProps} />);
     const inputText = 'weather';
-    const input = screen.getByLabelText(/find/i);
+    const input = screen.getByLabelText(/search/i);
     jest.useFakeTimers();
     userEvent.type(input, inputText + '{enter}');
     expect(setTimeout).toHaveBeenCalled();

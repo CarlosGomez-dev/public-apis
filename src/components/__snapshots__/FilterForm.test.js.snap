@@ -9,13 +9,13 @@ exports[`FilterForm matches snapshot 1`] = `
       class="label"
       for="filter"
     >
-      Find
+      Search
     </label>
     <input
       class="input search"
       id="filter"
       placeholder="e.g.: Weather"
-      type="text"
+      type="search"
       value=""
     />
     <span>

@@ -24,7 +24,8 @@
     color: $font-color-inverse;
     background-color: $button-color;
     transition: background-color 250ms;
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $button-color-hover;
     }
     &:disabled {

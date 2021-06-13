@@ -56,9 +56,13 @@ const entries = [
   },
 ];
 
+let mockError = null;
 jest.mock('./hooks', () => ({
-  useFetchApiCategories: () => categories,
-  useFetchApiEntries: () => [entries, false, null],
+  useFetchPublicApi: endpoint => {
+    const data = endpoint === 'categories' ? categories : entries;
+    const isLoading = false;
+    return [data, isLoading, mockError];
+  },
 }));
 
 describe('App', () => {
@@ -72,16 +76,16 @@ describe('App', () => {
   });
   it('focuses search input on page load', () => {
     render(<App />);
-    expect(screen.getByLabelText(/find/i)).toHaveFocus();
+    expect(screen.getByLabelText(/search/i)).toHaveFocus();
   });
   it('allows users to tab away and return to input', () => {
     const { container } = render(<App />);
     userEvent.tab();
     userEvent.tab();
     userEvent.tab();
-    expect(screen.getByLabelText(/find/i)).not.toHaveFocus();
+    expect(screen.getByLabelText(/search/i)).not.toHaveFocus();
     userEvent.type(container, '/');
-    expect(screen.getByLabelText(/find/i)).toHaveFocus();
+    expect(screen.getByLabelText(/search/i)).toHaveFocus();
   });
   it.each(options)('contains filter option: %s', async (label, option, displayValue) => {
     render(<App />);
@@ -92,7 +96,7 @@ describe('App', () => {
     render(<App />);
     const header = 1;
     const inputText = 'this returns no results';
-    const input = screen.getByLabelText(/find/i);
+    const input = screen.getByLabelText(/search/i);
     expect(screen.getByRole('table')).toBeInTheDocument();
     expect(screen.getAllByRole('row').length).toBe(entries.length + header);
     jest.useFakeTimers();
@@ -111,5 +115,11 @@ describe('App', () => {
     expect(tableRows).not.toEqual(screen.getAllByRole('row')[1]);
     userEvent.click(headers[0].firstElementChild);
     expect(tableRows).toEqual(screen.getAllByRole('row')[1]);
+  });
+  it('displays an error message if data fetch failed', async () => {
+    mockError = { error: 'Failed' };
+    render(<App />);
+    await screen.findByText(/error/i);
+    mockError = null;
   });
 });

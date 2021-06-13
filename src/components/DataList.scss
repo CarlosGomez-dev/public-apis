@@ -21,34 +21,36 @@
       margin: 0.5rem 0;
     }
   }
-  th {
-    button {
-      cursor: pointer;
-      background-color: $background-color-table;
-      color: $font-color;
-      border: none;
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.5rem 0;
-      display: flex;
-      &::after {
-        content: url('../assets/arrows-sort.svg');
-        height: 16px;
-      }
-    }
+}
+
+.api-table-header {
+  cursor: pointer;
+  background-color: $background-color-table;
+  color: $font-color;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  display: flex;
+  &::after {
+    content: url('../assets/arrows-sort.svg');
+    display: inline-block;
+    width: 16px;
+    margin: 0 3px;
   }
 }
 
 .api-name {
   width: 100%;
-  grid-area: name;
   font-size: 1.5rem;
   font-weight: 600;
   a {
     color: $font-color;
-    &[target='_blank']::after {
+    &::after {
       content: url('../assets/external-link.svg');
-      margin: 0 3px;
+      display: inline-block;
+      width: 20px;
+      margin: 0 1px;
     }
   }
 }
@@ -71,11 +73,14 @@
   font-size: 0.7rem;
   padding: 0.3rem 0.4rem;
   color: $font-color-inverse;
+  white-space: nowrap;
+}
+.category {
+  background-color: $badge-color-neutral;
 }
 .no-auth,
 .https {
   background-color: $badge-color-blue;
-  white-space: nowrap;
 }
 .auth,
 .no-https {
@@ -92,11 +97,13 @@
       text-align: left;
     }
   }
+
   .api-name,
   .api-description {
     width: auto;
     font-size: clamp(0.8rem, 2vw, 1.1rem);
   }
+
   .api-name {
     a {
       text-decoration-color: transparent;
@@ -104,12 +111,15 @@
       &:hover {
         text-decoration-color: $font-color;
       }
-    }
-    a[target='_blank']::after {
-      content: url('../assets/external-link.svg');
-      margin: 0;
+      &::after {
+        content: url('../assets/external-link.svg');
+        display: inline-block;
+        width: 16px;
+        margin: 0;
+      }
     }
   }
+
   .auth {
     display: block;
     width: fit-content;
@@ -117,5 +127,6 @@
   .category {
     display: block;
     text-align: center;
+    white-space: unset;
   }
 }

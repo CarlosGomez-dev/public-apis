@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 export const FilterFormSelect = ({
   className = '',
   label,
@@ -36,5 +34,3 @@ export const FilterFormSelect = ({
     </select>
   </div>
 );
-
-export const FilterFormSelectMemo = memo(FilterFormSelect);

@@ -1,2 +1,1 @@
-export * from './useFetchApiEntries';
-export * from './useFetchApiCategories';
+export * from './useFetchPublicApi';
