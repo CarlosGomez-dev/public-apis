@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react';
-import { useFetchApiCategories } from '../hooks/useFetchApiCategories';
+import { useFetchApiCategories } from '../hooks';
 import { FilterFormSelectMemo } from './FilterFormSelect';
 import './FilterForm.scss';
 
@@ -9,15 +9,7 @@ const PAGE_SIZE_OPTIONS = [
   [50, '50 / page'],
   [100, '100 / page'],
 ];
-const apiKeysAsOptions = [
-  ['API', 'Name'],
-  'Description',
-  'Auth',
-  'HTTPS',
-  'Cors',
-  'Link',
-  'Category',
-];
+const apiKeysAsOptions = [['API', 'Name'], 'Description', 'Auth', 'HTTPS', 'Category'];
 
 export const FilterForm = ({
   inputRef,
@@ -51,11 +43,11 @@ export const FilterForm = ({
         placeholder='e.g.: Weather'
         value={inputText}
         onChange={handleInput}
-        className='input'
+        className='input search'
       />
       <span>Press / to jump to the search box</span>
 
-      <section className='form__filters'>
+      <section className='form-filters'>
         <FilterFormSelectMemo
           label='Results per Page'
           optionsArray={PAGE_SIZE_OPTIONS}

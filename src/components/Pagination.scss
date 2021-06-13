@@ -8,7 +8,7 @@
     min-width: 130px;
     order: 1;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -29,7 +29,7 @@
       box-shadow: 0 0 0 2px rgb(94, 192, 231);
     }
     &:hover {
-      background-color: rgba(15, 4, 134, 0.85);
+      background-color: rgba(4, 34, 134, 0.85);
     }
     &:disabled {
       cursor: default;

@@ -1,0 +1,398 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches snapshot 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <h1>
+      Public APIs
+    </h1>
+    <header>
+      <form
+        class="form"
+      >
+        <label
+          class="label"
+          for="filter"
+        >
+          Find
+        </label>
+        <input
+          class="input search"
+          id="filter"
+          placeholder="e.g.: Weather"
+          type="text"
+          value=""
+        />
+        <span>
+          Press / to jump to the search box
+        </span>
+        <section
+          class="form-filters"
+        >
+          <div
+            class="form-select"
+          >
+            <label
+              class="label"
+              for="Results-per Page"
+            >
+              Results per Page
+            </label>
+            <select
+              class="select"
+              id="Results-per Page"
+            >
+              <option
+                value="10"
+              >
+                10 / page
+              </option>
+              <option
+                selected=""
+                value="20"
+              >
+                20 / page
+              </option>
+              <option
+                value="50"
+              >
+                50 / page
+              </option>
+              <option
+                value="100"
+              >
+                100 / page
+              </option>
+            </select>
+          </div>
+          <div
+            class="form-select"
+          >
+            <label
+              class="label"
+              for="Sort-by"
+            >
+              Sort by
+            </label>
+            <select
+              class="select"
+              id="Sort-by"
+            >
+              <option
+                value=""
+              >
+                -
+              </option>
+              <option
+                value="API"
+              >
+                Name
+              </option>
+              <option
+                value="Description"
+              >
+                Description
+              </option>
+              <option
+                value="Auth"
+              >
+                Auth
+              </option>
+              <option
+                value="HTTPS"
+              >
+                HTTPS
+              </option>
+              <option
+                value="Category"
+              >
+                Category
+              </option>
+            </select>
+          </div>
+          <div
+            class="form-select"
+          >
+            <label
+              class="label"
+              for="Categories"
+            >
+              Categories
+            </label>
+            <select
+              class="select"
+              id="Categories"
+            >
+              <option
+                value=""
+              >
+                -
+              </option>
+              <option
+                value="Data Validation"
+              >
+                Data Validation
+              </option>
+              <option
+                value="Development"
+              >
+                Development
+              </option>
+              <option
+                value="Dictionaries"
+              >
+                Dictionaries
+              </option>
+              <option
+                value="Documents & Productivity"
+              >
+                Documents & Productivity
+              </option>
+              <option
+                value="Environment"
+              >
+                Environment
+              </option>
+              <option
+                value="Events"
+              >
+                Events
+              </option>
+              <option
+                value="Finance"
+              >
+                Finance
+              </option>
+              <option
+                value="Food & Drink"
+              >
+                Food & Drink
+              </option>
+              <option
+                value="Games & Comics"
+              >
+                Games & Comics
+              </option>
+              <option
+                value="Geocoding"
+              >
+                Geocoding
+              </option>
+              <option
+                value="Government"
+              >
+                Government
+              </option>
+              <option
+                value="Health"
+              >
+                Health
+              </option>
+              <option
+                value="Jobs"
+              >
+                Jobs
+              </option>
+              <option
+                value="Machine Learning"
+              >
+                Machine Learning
+              </option>
+              <option
+                value="Music"
+              >
+                Music
+              </option>
+            </select>
+          </div>
+        </section>
+      </form>
+    </header>
+    <nav
+      class="pagination"
+    >
+      <p>
+        3
+         results
+      </p>
+      <div
+        class="button-container"
+      >
+        <button
+          disabled=""
+        >
+          &lt;&lt;
+        </button>
+        <button
+          disabled=""
+        >
+          Prev
+        </button>
+        <button
+          disabled=""
+        >
+          Next
+        </button>
+        <button
+          disabled=""
+        >
+          &gt;&gt;
+        </button>
+      </div>
+      <p>
+        Page 
+        1
+         of 
+        1
+      </p>
+    </nav>
+    <main
+      class="card-list"
+    >
+      <article
+        class="card"
+      >
+        <h2>
+          <span>
+            IUCN
+          </span>
+        </h2>
+        <div
+          class="card-badges"
+        >
+          <p
+            class="badge auth"
+          >
+            <span>
+              apiKey
+            </span>
+          </p>
+          <p
+            class="badge no-https"
+          >
+            <span>
+              HTTP
+              
+            </span>
+          </p>
+          <p
+            class="badge category"
+            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+          >
+            Animals
+          </p>
+        </div>
+        <p
+          class="card-description"
+        >
+          IUCN Red List of Threatened Species
+        </p>
+        <a
+          class="card-link"
+          href="http://apiv3.iucnredlist.org/api/v3/docs"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          http://apiv3.iucnredlist.org/api/v3/docs
+        </a>
+      </article>
+      <article
+        class="card"
+      >
+        <h2>
+          <span>
+            PageCDN
+          </span>
+        </h2>
+        <div
+          class="card-badges"
+        >
+          <p
+            class="badge auth"
+          >
+            <span>
+              apiKey
+            </span>
+          </p>
+          <p
+            class="badge https"
+          >
+            <span>
+              HTTP
+              S
+            </span>
+          </p>
+          <p
+            class="badge category"
+            style="background-color: rgb(137, 123, 250);"
+          >
+            Development
+          </p>
+        </div>
+        <p
+          class="card-description"
+        >
+          Public API for javascript, css and font libraries on PageCDN
+        </p>
+        <a
+          class="card-link"
+          href="https://pagecdn.com/docs/public-api"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://pagecdn.com/docs/public-api
+        </a>
+      </article>
+      <article
+        class="card"
+      >
+        <h2>
+          <span>
+            7digital
+          </span>
+        </h2>
+        <div
+          class="card-badges"
+        >
+          <p
+            class="badge auth"
+          >
+            <span>
+              OAuth
+            </span>
+          </p>
+          <p
+            class="badge https"
+          >
+            <span>
+              HTTP
+              S
+            </span>
+          </p>
+          <p
+            class="badge category"
+            style="background-color: rgb(72, 153, 46);"
+          >
+            Music
+          </p>
+        </div>
+        <p
+          class="card-description"
+        >
+          Api of Music store 7digital
+        </p>
+        <a
+          class="card-link"
+          href="https://docs.7digital.com/reference"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          https://docs.7digital.com/reference
+        </a>
+      </article>
+    </main>
+  </div>
+</div>
+`;

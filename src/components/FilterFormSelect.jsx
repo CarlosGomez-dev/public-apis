@@ -7,7 +7,7 @@ export const FilterFormSelect = ({
   onChange,
   hasNullOption = false,
 }) => (
-  <div className='form__select'>
+  <div className='form-select'>
     <label htmlFor={label.replace(' ', '-')} className='label'>
       {label}
     </label>

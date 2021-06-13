@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data List matches snapshot 1`] = `
+<div>
+  <main
+    class="card-list"
+  >
+    <article
+      class="card"
+    >
+      <h2>
+        <span>
+          Cat Facts
+        </span>
+      </h2>
+      <div
+        class="card-badges"
+      >
+        <p
+          class="badge no-auth"
+        >
+          <span>
+            No Auth
+          </span>
+        </p>
+        <p
+          class="badge https"
+        >
+          <span>
+            HTTP
+            S
+          </span>
+        </p>
+        <p
+          class="badge category"
+          style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+        >
+          Animals
+        </p>
+      </div>
+      <p
+        class="card-description"
+      >
+        Daily cat facts
+      </p>
+      <a
+        class="card-link"
+        href="https://alexwohlbruck.github.io/cat-facts/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        https://alexwohlbruck.github.io/cat-facts/
+      </a>
+    </article>
+    <article
+      class="card"
+    >
+      <h2>
+        <span>
+          Cataas
+        </span>
+      </h2>
+      <div
+        class="card-badges"
+      >
+        <p
+          class="badge no-auth"
+        >
+          <span>
+            No Auth
+          </span>
+        </p>
+        <p
+          class="badge no-https"
+        >
+          <span>
+            HTTP
+            
+          </span>
+        </p>
+        <p
+          class="badge category"
+          style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+        >
+          Animals
+        </p>
+      </div>
+      <p
+        class="card-description"
+      >
+        Cat as a service (cats pictures and gifs)
+      </p>
+      <a
+        class="card-link"
+        href="https://cataas.com/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        https://cataas.com/
+      </a>
+    </article>
+    <article
+      class="card"
+    >
+      <h2>
+        <span>
+          catAPI
+        </span>
+      </h2>
+      <div
+        class="card-badges"
+      >
+        <p
+          class="badge auth"
+        >
+          <span>
+            apiKey
+          </span>
+        </p>
+        <p
+          class="badge https"
+        >
+          <span>
+            HTTP
+            S
+          </span>
+        </p>
+        <p
+          class="badge category"
+          style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+        >
+          Animals
+        </p>
+      </div>
+      <p
+        class="card-description"
+      >
+        Random pictures of cats
+      </p>
+      <a
+        class="card-link"
+        href="https://github.com/ThatCopy/catAPI/wiki/Usage"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        https://github.com/ThatCopy/catAPI/wiki/Usage
+      </a>
+    </article>
+  </main>
+</div>
+`;

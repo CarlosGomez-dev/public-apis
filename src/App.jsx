@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { DataList, FilterFormMemo, Pagination } from './components';
 import './App.scss';
-import { useFetchApiEntries } from './hooks/useFetchApiEntries';
+import { useFetchApiEntries } from './hooks';
 import { sort } from './utils/sort';
 
 export const App = () => {
@@ -42,15 +42,20 @@ export const App = () => {
   }, []);
 
   const handleKeyUp = event => {
-    if (event.key === '/') inputRef.current.focus();
+    if (event.key === '/') {
+      event.preventDefault();
+      inputRef.current.focus();
+    }
   };
 
   useEffect(() => {
     inputRef.current.focus();
+    document.body.addEventListener('keyup', handleKeyUp);
+    return () => document.body.removeEventListener('keyup', handleKeyUp);
   }, []);
 
   return (
-    <div className='App' onKeyUp={handleKeyUp}>
+    <div className='App'>
       <h1>Public APIs</h1>
       <header>
         <FilterFormMemo

@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterForm matches snapshot 1`] = `
+<div>
+  <form
+    class="form"
+  >
+    <label
+      class="label"
+      for="filter"
+    >
+      Find
+    </label>
+    <input
+      class="input search"
+      id="filter"
+      placeholder="e.g.: Weather"
+      type="text"
+      value=""
+    />
+    <span>
+      Press / to jump to the search box
+    </span>
+    <section
+      class="form-filters"
+    >
+      <div
+        class="form-select"
+      >
+        <label
+          class="label"
+          for="Results-per Page"
+        >
+          Results per Page
+        </label>
+        <select
+          class="select"
+          id="Results-per Page"
+        >
+          <option
+            value="10"
+          >
+            10 / page
+          </option>
+          <option
+            value="20"
+          >
+            20 / page
+          </option>
+          <option
+            value="50"
+          >
+            50 / page
+          </option>
+          <option
+            value="100"
+          >
+            100 / page
+          </option>
+        </select>
+      </div>
+      <div
+        class="form-select"
+      >
+        <label
+          class="label"
+          for="Sort-by"
+        >
+          Sort by
+        </label>
+        <select
+          class="select"
+          id="Sort-by"
+        >
+          <option
+            value=""
+          >
+            -
+          </option>
+          <option
+            value="API"
+          >
+            Name
+          </option>
+          <option
+            value="Description"
+          >
+            Description
+          </option>
+          <option
+            value="Auth"
+          >
+            Auth
+          </option>
+          <option
+            value="HTTPS"
+          >
+            HTTPS
+          </option>
+          <option
+            value="Category"
+          >
+            Category
+          </option>
+        </select>
+      </div>
+      <div
+        class="form-select"
+      >
+        <label
+          class="label"
+          for="Categories"
+        >
+          Categories
+        </label>
+        <select
+          class="select"
+          id="Categories"
+        >
+          <option
+            value=""
+          >
+            -
+          </option>
+        </select>
+      </div>
+    </section>
+  </form>
+</div>
+`;

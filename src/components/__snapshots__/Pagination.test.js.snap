@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination matches snapshot 1`] = `
+<div>
+  <nav
+    class="pagination"
+  >
+    <p>
+      50
+       results
+    </p>
+    <div
+      class="button-container"
+    >
+      <button>
+        &lt;&lt;
+      </button>
+      <button>
+        Prev
+      </button>
+      <button>
+        Next
+      </button>
+      <button>
+        &gt;&gt;
+      </button>
+    </div>
+    <p>
+      Page 
+      2
+       of 
+      3
+    </p>
+  </nav>
+</div>
+`;
