@@ -5,8 +5,8 @@ import { useFetchApiEntries } from './hooks';
 import { sort } from './utils/sort';
 
 export const App = () => {
-  const apiData = useFetchApiEntries();
-  const [sortBy, setSortBy] = useState('');
+  const [apiData, isLoading, error] = useFetchApiEntries();
+  const [{ sortBy, ascending }, setSortBy] = useState({ sortBy: '', ascending: '' });
 
   const [categoryFilter, setCategoryFilter] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
@@ -14,7 +14,7 @@ export const App = () => {
   const [pageLimit, setPageLimit] = useState(20);
   const inputRef = useRef(null);
 
-  const sortedData = sort(apiData, sortBy);
+  const sortedData = sort(apiData, sortBy, ascending);
   const categoryApiData = categoryFilter
     ? sortedData.filter(api => api.Category === categoryFilter)
     : sortedData;
@@ -41,6 +41,16 @@ export const App = () => {
     setPageLimit(newLimit);
   }, []);
 
+  const handleSort = sortColumn => {
+    if (ascending === 'desc') {
+      return setSortBy({ sortBy: '', ascending: '' });
+    }
+    if (sortColumn === sortBy) {
+      return setSortBy({ sortBy: sortColumn, ascending: 'desc' });
+    }
+    setSortBy({ sortBy: sortColumn, ascending: 'asc' });
+  };
+
   const handleKeyUp = event => {
     if (event.key === '/') {
       event.preventDefault();
@@ -64,7 +74,7 @@ export const App = () => {
             handleSearch,
             pageLimit,
             handlePageLimit,
-            setSortBy,
+            handleSort,
             handleCategory,
           }}
         />
@@ -75,12 +85,17 @@ export const App = () => {
         pageLimit={pageLimit}
         setCurrentPage={setCurrentPage}
       />
-      {paginatedApiData.length ? (
-        <DataList apiData={paginatedApiData} />
-      ) : (
+      {error && (
+        <p className='loading'>There was an error fetching the API. Please try again later.</p>
+      )}
+      {isLoading && <p className='loading'>Loading results...</p>}
+      {!isLoading && paginatedApiData.length === 0 && (
         <p className='no-results'>
           No results, try another search term or change the filters to see more results.
         </p>
+      )}
+      {!isLoading && paginatedApiData.length > 0 && (
+        <DataList apiData={paginatedApiData} handleSort={handleSort} />
       )}
     </div>
   );

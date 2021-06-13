@@ -3,7 +3,7 @@
 exports[`Filter Form Select matches snapshot 1`] = `
 <div>
   <div
-    class="form-select"
+    class="form-select "
   >
     <label
       class="label"

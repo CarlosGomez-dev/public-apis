@@ -16,7 +16,7 @@ export const FilterForm = ({
   handleSearch,
   pageLimit,
   handlePageLimit,
-  setSortBy,
+  handleSort,
   handleCategory,
 }) => {
   const [inputText, setInputText] = useState('');
@@ -55,9 +55,10 @@ export const FilterForm = ({
           onChange={handlePageLimit}
         />
         <FilterFormSelectMemo
+          className='sort-by-select'
           label='Sort by'
           optionsArray={apiKeysAsOptions}
-          onChange={setSortBy}
+          onChange={handleSort}
           hasNullOption
         />
         <FilterFormSelectMemo

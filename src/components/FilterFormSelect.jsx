@@ -1,18 +1,19 @@
 import { memo } from 'react';
 
 export const FilterFormSelect = ({
+  className = '',
   label,
   optionsArray,
   defaultValue = null,
   onChange,
   hasNullOption = false,
 }) => (
-  <div className='form-select'>
-    <label htmlFor={label.replace(' ', '-')} className='label'>
+  <div className={'form-select ' + className}>
+    <label htmlFor={label.replace(/\s/g, '-')} className='label'>
       {label}
     </label>
     <select
-      id={label.replace(' ', '-')}
+      id={label.replace(/\s/g, '-')}
       defaultValue={hasNullOption ? '-' : defaultValue}
       onChange={event => onChange(event.target.value)}
       className='select'

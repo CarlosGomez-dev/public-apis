@@ -2,150 +2,175 @@
 
 exports[`Data List matches snapshot 1`] = `
 <div>
-  <main
-    class="card-list"
+  <table
+    class="api-table"
   >
-    <article
-      class="card"
-    >
-      <h2>
-        <span>
-          Cat Facts
-        </span>
-      </h2>
-      <div
-        class="card-badges"
-      >
-        <p
-          class="badge no-auth"
+    <thead>
+      <tr>
+        <th>
+          <button>
+            Name
+          </button>
+        </th>
+        <th>
+          <button>
+            Description
+          </button>
+        </th>
+        <th>
+          <button>
+            Auth
+          </button>
+        </th>
+        <th>
+          <button>
+            HTTPS
+          </button>
+        </th>
+        <th>
+          <button>
+            Category
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          class="api-name"
+        >
+          <a
+            href="https://alexwohlbruck.github.io/cat-facts/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>
+              Cat Facts
+            </span>
+          </a>
+        </td>
+        <td
+          class="api-description"
         >
           <span>
+            Daily cat facts
+          </span>
+        </td>
+        <td>
+          <span
+            class="badge no-auth"
+          >
             No Auth
           </span>
-        </p>
-        <p
-          class="badge https"
-        >
-          <span>
+        </td>
+        <td>
+          <span
+            class="badge https"
+          >
             HTTP
             S
           </span>
-        </p>
-        <p
-          class="badge category"
-          style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+        </td>
+        <td>
+          <span
+            class="badge category"
+            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+          >
+            Animals
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="api-name"
         >
-          Animals
-        </p>
-      </div>
-      <p
-        class="card-description"
-      >
-        Daily cat facts
-      </p>
-      <a
-        class="card-link"
-        href="https://alexwohlbruck.github.io/cat-facts/"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        https://alexwohlbruck.github.io/cat-facts/
-      </a>
-    </article>
-    <article
-      class="card"
-    >
-      <h2>
-        <span>
-          Cataas
-        </span>
-      </h2>
-      <div
-        class="card-badges"
-      >
-        <p
-          class="badge no-auth"
+          <a
+            href="https://cataas.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>
+              Cataas
+            </span>
+          </a>
+        </td>
+        <td
+          class="api-description"
         >
           <span>
+            Cat as a service (cats pictures and gifs)
+          </span>
+        </td>
+        <td>
+          <span
+            class="badge no-auth"
+          >
             No Auth
           </span>
-        </p>
-        <p
-          class="badge no-https"
-        >
-          <span>
+        </td>
+        <td>
+          <span
+            class="badge no-https"
+          >
             HTTP
             
           </span>
-        </p>
-        <p
-          class="badge category"
-          style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+        </td>
+        <td>
+          <span
+            class="badge category"
+            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+          >
+            Animals
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="api-name"
         >
-          Animals
-        </p>
-      </div>
-      <p
-        class="card-description"
-      >
-        Cat as a service (cats pictures and gifs)
-      </p>
-      <a
-        class="card-link"
-        href="https://cataas.com/"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        https://cataas.com/
-      </a>
-    </article>
-    <article
-      class="card"
-    >
-      <h2>
-        <span>
-          catAPI
-        </span>
-      </h2>
-      <div
-        class="card-badges"
-      >
-        <p
-          class="badge auth"
+          <a
+            href="https://github.com/ThatCopy/catAPI/wiki/Usage"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>
+              catAPI
+            </span>
+          </a>
+        </td>
+        <td
+          class="api-description"
         >
           <span>
+            Random pictures of cats
+          </span>
+        </td>
+        <td>
+          <span
+            class="badge auth"
+          >
             apiKey
           </span>
-        </p>
-        <p
-          class="badge https"
-        >
-          <span>
+        </td>
+        <td>
+          <span
+            class="badge https"
+          >
             HTTP
             S
           </span>
-        </p>
-        <p
-          class="badge category"
-          style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
-        >
-          Animals
-        </p>
-      </div>
-      <p
-        class="card-description"
-      >
-        Random pictures of cats
-      </p>
-      <a
-        class="card-link"
-        href="https://github.com/ThatCopy/catAPI/wiki/Usage"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        https://github.com/ThatCopy/catAPI/wiki/Usage
-      </a>
-    </article>
-  </main>
+        </td>
+        <td>
+          <span
+            class="badge category"
+            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+          >
+            Animals
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;

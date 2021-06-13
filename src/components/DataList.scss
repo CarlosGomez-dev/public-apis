@@ -1,35 +1,63 @@
-.card-list {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
+@import '../colors';
+
+.api-table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  thead tr {
+    display: none;
+    user-select: none;
+  }
+  tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  td,
+  th {
+    padding: 0.3rem;
+    span {
+      margin: 0.5rem 0;
+    }
+  }
+  th {
+    button {
+      cursor: pointer;
+      background-color: $background-color-table;
+      color: $font-color;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      display: flex;
+      &::after {
+        content: url('../assets/arrows-sort.svg');
+        height: 16px;
+      }
+    }
+  }
 }
 
-.card-badges {
-  display: flex;
-  gap: 0.5rem;
-  margin: 0.5rem auto;
-  font-weight: bold;
-  .badge {
-    border-radius: 5px;
-    font-size: 0.7rem;
-    padding: 0.3rem 0.4rem;
-    color: white;
-    line-height: 15px;
-  }
-  .no-auth,
-  .https {
-    background-color: #41a3ce;
-  }
-  .auth,
-  .no-https {
-    background-color: #e73f25;
+.api-name {
+  width: 100%;
+  grid-area: name;
+  font-size: 1.5rem;
+  font-weight: 600;
+  a {
+    color: $font-color;
+    &[target='_blank']::after {
+      content: url('../assets/external-link.svg');
+      margin: 0 3px;
+    }
   }
 }
 
-.card-description {
+.api-description {
+  margin-top: 0.5rem;
   font-size: 1.3rem;
-  padding: 0.5rem 0;
-  quotes: '“' '”';
+  order: 1;
+  width: 100%;
   &::before {
     content: open-quote;
   }
@@ -38,20 +66,56 @@
   }
 }
 
-.card-link {
-  display: block;
-  max-width: 250px;
-  word-wrap: break-word;
+.badge {
+  border-radius: 6px;
+  font-size: 0.7rem;
+  padding: 0.3rem 0.4rem;
+  color: $font-color-inverse;
+}
+.no-auth,
+.https {
+  background-color: $badge-color-blue;
+  white-space: nowrap;
+}
+.auth,
+.no-https {
+  background-color: $badge-color-red;
 }
 
 @media (min-width: 768px) {
-  .card-list {
-    grid-template-columns: 1fr 1fr;
+  .api-table {
+    thead tr,
+    tbody tr {
+      display: table-row;
+      background-color: $background-color-table;
+      border: 1px solid $border-color;
+      text-align: left;
+    }
   }
-}
-
-@media (min-width: 1024px) {
-  .card-list {
-    grid-template-columns: 1fr 1fr 1fr;
+  .api-name,
+  .api-description {
+    width: auto;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+  }
+  .api-name {
+    a {
+      text-decoration-color: transparent;
+      transition: text-decoration-color 250ms;
+      &:hover {
+        text-decoration-color: $font-color;
+      }
+    }
+    a[target='_blank']::after {
+      content: url('../assets/external-link.svg');
+      margin: 0;
+    }
+  }
+  .auth {
+    display: block;
+    width: fit-content;
+  }
+  .category {
+    display: block;
+    text-align: center;
   }
 }

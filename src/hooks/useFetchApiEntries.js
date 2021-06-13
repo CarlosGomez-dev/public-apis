@@ -1,17 +1,26 @@
 import { useEffect, useState } from 'react';
-import jsonData from '../entries.json';
 
 export const useFetchApiEntries = () => {
-  const [apiData, setApiData] = useState([]);
+  const [{ apiData, isLoading, error }, setApiData] = useState({
+    apiData: [],
+    isLoading: false,
+    error: null,
+  });
+
   useEffect(() => {
     const fetchData = async () => {
-      // const results = await fetch('https://api.publicapis.org/entries');
-      // const data = await results.json();
-      // setApiData(data.entries)
-      const data = jsonData.entries; //.slice(0, 20);
-      setApiData(data);
+      setApiData(state => ({ ...state, isLoading: true, error: null }));
+      try {
+        const results = await fetch('https://api.publicapis.org/entries');
+        const data = await results.json();
+        setApiData({ apiData: data.entries, isLoading: false, error: null });
+      } catch (error) {
+        console.error(error);
+        setApiData(state => ({ ...state, isLoading: false, error }));
+      }
     };
     fetchData();
   }, []);
-  return apiData;
+
+  return [apiData, isLoading, error];
 };

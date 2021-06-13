@@ -25,17 +25,17 @@ exports[`FilterForm matches snapshot 1`] = `
       class="form-filters"
     >
       <div
-        class="form-select"
+        class="form-select "
       >
         <label
           class="label"
-          for="Results-per Page"
+          for="Results-per-Page"
         >
           Results per Page
         </label>
         <select
           class="select"
-          id="Results-per Page"
+          id="Results-per-Page"
         >
           <option
             value="10"
@@ -60,7 +60,7 @@ exports[`FilterForm matches snapshot 1`] = `
         </select>
       </div>
       <div
-        class="form-select"
+        class="form-select sort-by-select"
       >
         <label
           class="label"
@@ -105,7 +105,7 @@ exports[`FilterForm matches snapshot 1`] = `
         </select>
       </div>
       <div
-        class="form-select"
+        class="form-select "
       >
         <label
           class="label"

@@ -32,17 +32,17 @@ exports[`App matches snapshot 1`] = `
           class="form-filters"
         >
           <div
-            class="form-select"
+            class="form-select "
           >
             <label
               class="label"
-              for="Results-per Page"
+              for="Results-per-Page"
             >
               Results per Page
             </label>
             <select
               class="select"
-              id="Results-per Page"
+              id="Results-per-Page"
             >
               <option
                 value="10"
@@ -68,7 +68,7 @@ exports[`App matches snapshot 1`] = `
             </select>
           </div>
           <div
-            class="form-select"
+            class="form-select sort-by-select"
           >
             <label
               class="label"
@@ -113,7 +113,7 @@ exports[`App matches snapshot 1`] = `
             </select>
           </div>
           <div
-            class="form-select"
+            class="form-select "
           >
             <label
               class="label"
@@ -248,151 +248,176 @@ exports[`App matches snapshot 1`] = `
         1
       </p>
     </nav>
-    <main
-      class="card-list"
+    <table
+      class="api-table"
     >
-      <article
-        class="card"
-      >
-        <h2>
-          <span>
-            IUCN
-          </span>
-        </h2>
-        <div
-          class="card-badges"
-        >
-          <p
-            class="badge auth"
+      <thead>
+        <tr>
+          <th>
+            <button>
+              Name
+            </button>
+          </th>
+          <th>
+            <button>
+              Description
+            </button>
+          </th>
+          <th>
+            <button>
+              Auth
+            </button>
+          </th>
+          <th>
+            <button>
+              HTTPS
+            </button>
+          </th>
+          <th>
+            <button>
+              Category
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            class="api-name"
+          >
+            <a
+              href="http://apiv3.iucnredlist.org/api/v3/docs"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>
+                IUCN
+              </span>
+            </a>
+          </td>
+          <td
+            class="api-description"
           >
             <span>
+              IUCN Red List of Threatened Species
+            </span>
+          </td>
+          <td>
+            <span
+              class="badge auth"
+            >
               apiKey
             </span>
-          </p>
-          <p
-            class="badge no-https"
-          >
-            <span>
+          </td>
+          <td>
+            <span
+              class="badge no-https"
+            >
               HTTP
               
             </span>
-          </p>
-          <p
-            class="badge category"
-            style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+          </td>
+          <td>
+            <span
+              class="badge category"
+              style="background-color: rgb(42, 248, 92); color: rgb(0, 0, 0);"
+            >
+              Animals
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="api-name"
           >
-            Animals
-          </p>
-        </div>
-        <p
-          class="card-description"
-        >
-          IUCN Red List of Threatened Species
-        </p>
-        <a
-          class="card-link"
-          href="http://apiv3.iucnredlist.org/api/v3/docs"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          http://apiv3.iucnredlist.org/api/v3/docs
-        </a>
-      </article>
-      <article
-        class="card"
-      >
-        <h2>
-          <span>
-            PageCDN
-          </span>
-        </h2>
-        <div
-          class="card-badges"
-        >
-          <p
-            class="badge auth"
+            <a
+              href="https://pagecdn.com/docs/public-api"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>
+                PageCDN
+              </span>
+            </a>
+          </td>
+          <td
+            class="api-description"
           >
             <span>
+              Public API for javascript, css and font libraries on PageCDN
+            </span>
+          </td>
+          <td>
+            <span
+              class="badge auth"
+            >
               apiKey
             </span>
-          </p>
-          <p
-            class="badge https"
-          >
-            <span>
+          </td>
+          <td>
+            <span
+              class="badge https"
+            >
               HTTP
               S
             </span>
-          </p>
-          <p
-            class="badge category"
-            style="background-color: rgb(137, 123, 250);"
+          </td>
+          <td>
+            <span
+              class="badge category"
+              style="background-color: rgb(137, 123, 250);"
+            >
+              Development
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="api-name"
           >
-            Development
-          </p>
-        </div>
-        <p
-          class="card-description"
-        >
-          Public API for javascript, css and font libraries on PageCDN
-        </p>
-        <a
-          class="card-link"
-          href="https://pagecdn.com/docs/public-api"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          https://pagecdn.com/docs/public-api
-        </a>
-      </article>
-      <article
-        class="card"
-      >
-        <h2>
-          <span>
-            7digital
-          </span>
-        </h2>
-        <div
-          class="card-badges"
-        >
-          <p
-            class="badge auth"
+            <a
+              href="https://docs.7digital.com/reference"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>
+                7digital
+              </span>
+            </a>
+          </td>
+          <td
+            class="api-description"
           >
             <span>
+              Api of Music store 7digital
+            </span>
+          </td>
+          <td>
+            <span
+              class="badge auth"
+            >
               OAuth
             </span>
-          </p>
-          <p
-            class="badge https"
-          >
-            <span>
+          </td>
+          <td>
+            <span
+              class="badge https"
+            >
               HTTP
               S
             </span>
-          </p>
-          <p
-            class="badge category"
-            style="background-color: rgb(72, 153, 46);"
-          >
-            Music
-          </p>
-        </div>
-        <p
-          class="card-description"
-        >
-          Api of Music store 7digital
-        </p>
-        <a
-          class="card-link"
-          href="https://docs.7digital.com/reference"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          https://docs.7digital.com/reference
-        </a>
-      </article>
-    </main>
+          </td>
+          <td>
+            <span
+              class="badge category"
+              style="background-color: rgb(72, 153, 46);"
+            >
+              Music
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;

@@ -58,17 +58,17 @@ const entries = [
 
 jest.mock('./hooks', () => ({
   useFetchApiCategories: () => categories,
-  useFetchApiEntries: () => entries,
+  useFetchApiEntries: () => [entries, false, null],
 }));
 
 describe('App', () => {
-  test('matches snapshot', () => {
+  it('matches snapshot', () => {
     const { container } = render(<App />);
     expect(container).toMatchSnapshot();
   });
   it('renders results on page load', () => {
     render(<App />);
-    expect(screen.getByRole('main').childElementCount).toBeGreaterThan(0);
+    expect(screen.getAllByRole('row').length).toBeGreaterThan(1);
   });
   it('focuses search input on page load', () => {
     render(<App />);
@@ -90,14 +90,26 @@ describe('App', () => {
   });
   it('contains search input to filter results', async () => {
     render(<App />);
+    const header = 1;
     const inputText = 'this returns no results';
     const input = screen.getByLabelText(/find/i);
-    expect(screen.queryByRole('main')).toBeInTheDocument();
-    expect(screen.queryByRole('main').childElementCount).toBe(entries.length);
+    expect(screen.getByRole('table')).toBeInTheDocument();
+    expect(screen.getAllByRole('row').length).toBe(entries.length + header);
     jest.useFakeTimers();
     userEvent.type(input, inputText);
     screen.getByDisplayValue(inputText);
     act(() => jest.runAllTimers());
-    expect(screen.queryByRole('main')).not.toBeInTheDocument();
+    expect(screen.queryByRole('table')).not.toBeInTheDocument();
+  });
+  it('contains allows sorting with headers', () => {
+    render(<App />);
+    const headers = screen.getAllByRole('columnheader');
+    const tableRows = screen.getAllByRole('row')[1];
+    userEvent.click(headers[0].firstElementChild);
+    expect(tableRows).not.toEqual(screen.getAllByRole('row')[1]);
+    userEvent.click(headers[0].firstElementChild);
+    expect(tableRows).not.toEqual(screen.getAllByRole('row')[1]);
+    userEvent.click(headers[0].firstElementChild);
+    expect(tableRows).toEqual(screen.getAllByRole('row')[1]);
   });
 });
