@@ -1,8 +1,10 @@
-# Public APIs
+# Public APIs [![Test and Deploy](https://github.com/CarlosGomez-dev/public-apis/actions/workflows/test-and-deploy.yml/badge.svg?branch=main)](https://github.com/CarlosGomez-dev/public-apis/actions/workflows/test-and-deploy.yml)
 
 React App to display a list of free APIs for use in software and web development.
 
 Allows filtering and sorting, and includes mobile and desktop layouts.
+
+Access the live project: <http://public-apis-assignment.s3-website-us-east-1.amazonaws.com>
 
 ## Testing
 
