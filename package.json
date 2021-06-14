@@ -16,7 +16,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --runInBand",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker": "npm run docker:build && npm run docker:run",
+    "docker:build": "docker build -t public-apis:prod .",
+    "docker:run": "docker run -it --rm -p 3001:80 public-apis:prod"
   },
   "eslintConfig": {
     "extends": [
