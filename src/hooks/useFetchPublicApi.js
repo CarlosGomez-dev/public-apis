@@ -16,7 +16,7 @@ export const useFetchPublicApi = endpoint => {
         const response = await fetch(PUBLIC_API_URL + endpoint);
         const data = await response.json();
         setData({
-          data: endpoint === 'entries' ? data.entries : data,
+          data: data?.entries ?? data.categories ?? data,
           isLoading: false,
           error: null,
         });

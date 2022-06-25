@@ -11,7 +11,13 @@ const PAGE_SIZE_OPTIONS = [
   [50, '50 / page'],
   [100, '100 / page'],
 ];
-const apiKeysAsOptions = [['API', 'Name'], 'Description', 'Auth', 'HTTPS', 'Category'];
+const apiKeysAsOptions = [
+  ['API', 'Name'],
+  'Description',
+  'Auth',
+  'HTTPS',
+  'Category',
+];
 
 export const FilterForm = ({
   inputRef,
@@ -65,7 +71,7 @@ export const FilterForm = ({
         />
         <FilterFormSelectMemo
           label='Categories'
-          optionsArray={categories}
+          optionsArray={categories || []}
           onChange={handleCategory}
           hasNullOption
         />
